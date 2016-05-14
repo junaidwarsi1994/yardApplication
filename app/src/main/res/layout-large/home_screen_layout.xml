@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/trailer_picture_list_container"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangular_border">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                android:layout_marginLeft="@dimen/margin_container"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/camera_icon"
+                android:layout_weight="0.2"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginRight="@dimen/margin_container"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                />
+
+
+
+
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trailer Pictures"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@android:color/white"
+                />
+
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tires_picture_list_container"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangular_border">
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                android:layout_marginLeft="@dimen/margin_container"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/camera_icon"
+                android:layout_weight="0.2"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginRight="@dimen/margin_container"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tires Pictures"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@android:color/white"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/truck_picture_list_container"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangular_border">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                android:layout_marginLeft="@dimen/margin_container"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/camera_icon"
+                android:layout_weight="0.2"
+                android:background="@drawable/rectangular_border"
+                android:layout_marginRight="@dimen/margin_container"
+                android:layout_marginTop="@dimen/margin_container"
+                android:layout_marginBottom="@dimen/margin_container"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Truck Pictures"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@android:color/white"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
