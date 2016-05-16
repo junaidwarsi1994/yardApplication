@@ -21,17 +21,21 @@
             android:background="@drawable/rectangular_border">
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/trailer_image_list"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="0.8"
                 android:background="@drawable/rectangular_border"
                 android:layout_marginTop="@dimen/margin_container"
                 android:layout_marginBottom="@dimen/margin_container"
-                android:layout_marginLeft="@dimen/margin_container"/>
+                android:layout_marginLeft="@dimen/margin_container"
+                android:padding="10dp"/>
 
             <ImageView
+                android:id="@+id/trailer_camera_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="@dimen/camera_icon_padding"
                 android:src="@drawable/camera_icon"
                 android:layout_weight="0.2"
                 android:background="@drawable/rectangular_border"
@@ -80,19 +84,23 @@
 
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/tires_picture_list"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="0.8"
                 android:background="@drawable/rectangular_border"
                 android:layout_marginTop="@dimen/margin_container"
                 android:layout_marginBottom="@dimen/margin_container"
-                android:layout_marginLeft="@dimen/margin_container"/>
+                android:layout_marginLeft="@dimen/margin_container"
+                android:padding="10dp"/>
 
             <ImageView
+                android:id="@+id/tire_camera_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/camera_icon"
                 android:layout_weight="0.2"
+                android:padding="@dimen/camera_icon_padding"
                 android:background="@drawable/rectangular_border"
                 android:layout_marginRight="@dimen/margin_container"
                 android:layout_marginTop="@dimen/margin_container"
@@ -137,15 +145,18 @@
 
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/truck_picture_list"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="0.8"
                 android:background="@drawable/rectangular_border"
                 android:layout_marginTop="@dimen/margin_container"
                 android:layout_marginBottom="@dimen/margin_container"
-                android:layout_marginLeft="@dimen/margin_container"/>
+                android:layout_marginLeft="@dimen/margin_container"
+                android:padding="10dp"/>
 
             <ImageView
+                android:id="@+id/truck_camera_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/camera_icon"
@@ -154,6 +165,7 @@
                 android:layout_marginRight="@dimen/margin_container"
                 android:layout_marginTop="@dimen/margin_container"
                 android:layout_marginBottom="@dimen/margin_container"
+                android:padding="@dimen/camera_icon_padding"
                 />
         </LinearLayout>
 
