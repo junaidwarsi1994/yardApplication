@@ -2,7 +2,6 @@ package com.example.invision.yardapplication.ui.activities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Camera;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,10 +16,12 @@ import android.widget.ImageView;
 
 import com.example.invision.yardapplication.R;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-import adapters.cameraListAdapter;
-import models.Interchange;
+import com.example.invision.yardapplication.adapters.cameraListAdapter;
+import com.example.invision.yardapplication.models.TruckInterchange;
+import com.example.invision.yardapplication.util.Utils;
 
 /**
  * Created by Junaid-Invision on 5/14/2016.
@@ -56,7 +57,7 @@ public class CameraScreenActivity extends BaseActivity implements android.hardwa
         mCameraPreviewHolder.addCallback(this);
         doneButton = (Button)findViewById(R.id.done_button);
         interchangeImageCollection = (RecyclerView)findViewById(R.id.interchange_list_collection);
-        interchangeImageAdapter = new cameraListAdapter(this,new ArrayList<Interchange>());
+        interchangeImageAdapter = new cameraListAdapter(this,new ArrayList<TruckInterchange>());
         interchangeImageCollection.setAdapter(interchangeImageAdapter);
         LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         manager.setStackFromEnd(true);
@@ -135,7 +136,12 @@ public class CameraScreenActivity extends BaseActivity implements android.hardwa
                 Bitmap bitmap = BitmapFactory.decodeByteArray(cameraImageData, 0, cameraImageData.length);
                 // CameraImageHolder.setVisibility(View.VISIBLE);
                 //CameraImageHolder.setImageBitmap(bitmap);
-                imageData = cameraImageData;
+
+                Bitmap  scaled =Utils.scaleBitmap(bitmap,133,133);
+                ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
+                scaled.compress(Bitmap.CompressFormat.PNG, 100, byteArrayBitmapStream);
+                byte[] bytes = byteArrayBitmapStream.toByteArray();
+                imageData = bytes;
 
 
                 return null;
@@ -145,7 +151,7 @@ public class CameraScreenActivity extends BaseActivity implements android.hardwa
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 doneButton.setVisibility(View.VISIBLE);
-                Interchange interchange = new Interchange();
+                TruckInterchange interchange = new TruckInterchange();
                 interchange.setImage(imageData);
                 interchangeImageAdapter.addItem(interchange);
             }

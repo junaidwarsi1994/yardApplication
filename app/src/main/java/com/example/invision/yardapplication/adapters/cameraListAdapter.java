@@ -1,4 +1,4 @@
-package adapters;
+package com.example.invision.yardapplication.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,8 @@ import com.example.invision.yardapplication.R;
 
 import java.util.List;
 
-import models.Interchange;
-import viewHolders.ImageViewHolder;
+import com.example.invision.yardapplication.models.TruckInterchange;
+import com.example.invision.yardapplication.viewHolders.ImageViewHolder;
 
 /**
  * Created by Junaid-Invision on 5/16/2016.
@@ -19,9 +19,9 @@ import viewHolders.ImageViewHolder;
 public class cameraListAdapter extends RecyclerView.Adapter<ImageViewHolder>{
 
     Context context;
-    List<Interchange> interchangeList;
+    List<TruckInterchange> interchangeList;
 
-    public cameraListAdapter (Context c , List<Interchange> data)
+    public cameraListAdapter (Context c , List<TruckInterchange> data)
     {
         context = c ;
         interchangeList= data;
@@ -40,7 +40,7 @@ public class cameraListAdapter extends RecyclerView.Adapter<ImageViewHolder>{
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
 
-        Interchange interchange = interchangeList.get(position);
+        TruckInterchange interchange = interchangeList.get(position);
         holder.setImage (interchange.getImage());
 
     }
@@ -50,14 +50,14 @@ public class cameraListAdapter extends RecyclerView.Adapter<ImageViewHolder>{
         return interchangeList.size();
     }
 
-    public void addItem (Interchange interchange)
+    public void addItem (TruckInterchange interchange)
     {
         interchangeList.add(interchange);
         notifyDataSetChanged();
     }
 
 
-    public List<Interchange> getInterchangeList() {
+    public List<TruckInterchange> getInterchangeList() {
         return interchangeList;
     }
 }

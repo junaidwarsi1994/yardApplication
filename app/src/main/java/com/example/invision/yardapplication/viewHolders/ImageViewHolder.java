@@ -1,4 +1,4 @@
-package viewHolders;
+package com.example.invision.yardapplication.viewHolders;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.invision.yardapplication.R;
+
+import com.example.invision.yardapplication.util.Utils;
 
 /**
  * Created by Junaid-Invision on 5/16/2016.
@@ -28,6 +30,10 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
     public void setImage(byte[]  data)
     {
         imageData = data;
+//        final BitmapFactory.Options options = new BitmapFactory.Options();
+//        options.inJustDecodeBounds = true;
+
+
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
@@ -43,7 +49,8 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
 
-                displayImage.setImageBitmap(image);
+                displayImage.setImageBitmap(Utils.scaleBitmap(image,displayImage.getWidth(),displayImage.getHeight()));
+
 
             }
         }.execute();

@@ -2,9 +2,7 @@ package com.example.invision.yardapplication.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,10 +11,11 @@ import android.widget.ImageView;
 
 import com.example.invision.yardapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import adapters.HomeListAdapter;
-import models.Interchange;
+import com.example.invision.yardapplication.adapters.HomeListAdapter;
+import com.example.invision.yardapplication.models.TruckInterchange;
 
 /**
  * Created by Junaid-Invision on 5/14/2016.
@@ -29,7 +28,7 @@ public class HomeScreenActivity extends BaseActivity {
     private RecyclerView trailerList;
     private RecyclerView tiresList;
     private RecyclerView truckList;
-    public  static List<Interchange> freshInterChanges;
+    public  static List<TruckInterchange> freshInterChanges;
     private boolean trailer = false;
     private boolean truck = false;
     private boolean tires = false;
@@ -37,13 +36,21 @@ public class HomeScreenActivity extends BaseActivity {
     private HomeListAdapter truckListAdapter;
     private HomeListAdapter trailerListAdapter;
 
-
+    public static  String TIRE = "tire";
+    public static  String TRUCK = "truck";
+    public static  String TRAILER = "Trailer";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //SugarContext.init(getApplicationContext());
+
         setContentView(R.layout.home_screen_layout);
         setUpComponents();
         setUPListeners();
+        fetchDataItems();
+
+
+
     }
 
     @Override
@@ -122,17 +129,17 @@ public class HomeScreenActivity extends BaseActivity {
 
         if(trailer == true)
         {
-            updateData (trailerListAdapter);
+            updateData (trailerListAdapter,TRAILER);
             trailer = false;
         }
         else if (truck == true)
         {
-            updateData(truckListAdapter);
+            updateData(truckListAdapter,TRUCK);
             truck = false;
         }
         else if (tires == true)
         {
-            updateData (tireListAdapter);
+            updateData (tireListAdapter,TIRE);
             tires = false;
         }
 
@@ -142,15 +149,51 @@ public class HomeScreenActivity extends BaseActivity {
 
     }
 
-    public void updateData (HomeListAdapter adapter)
+    public void updateData (HomeListAdapter adapter , String type)
     {
         if (freshInterChanges != null)
         {
-            for (Interchange interchange : freshInterChanges)
+            for (TruckInterchange interchange : freshInterChanges)
             {
+                interchange.type = type;
                 adapter.addItem(interchange);
+                interchange.save();
             }
             freshInterChanges = null;
         }
     }
+
+
+    public void fetchDataItems ()
+    {
+        List<TruckInterchange>tires = new ArrayList<TruckInterchange>();
+        List<TruckInterchange>trailer = new ArrayList<TruckInterchange>();
+        List<TruckInterchange>truck = new ArrayList<TruckInterchange>();
+        List<TruckInterchange> savedInterChange = TruckInterchange.listAll(TruckInterchange.class);
+        if (savedInterChange != null)
+        {
+            for (TruckInterchange interChange: savedInterChange)
+            {
+                if(interChange.type.equals(TIRE))
+                {
+                  tireListAdapter.addItem(interChange);
+                }
+                else if (interChange.type.equals(TRUCK))
+
+                {
+                    truckListAdapter.addItem(interChange);
+                }
+                else
+                {
+                    trailerListAdapter.addItem(interChange);
+                }
+
+
+
+
+            }
+        }
+
+    }
+
 }

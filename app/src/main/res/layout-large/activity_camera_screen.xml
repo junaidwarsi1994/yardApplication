@@ -3,9 +3,9 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:background="@drawable/rectangular_border"
         android:id="@+id/truck_information_container">
@@ -13,8 +13,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/title_text"
             android:text="Interchange"
-            android:textSize="25sp"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginLeft="10dp"/>
@@ -23,24 +25,32 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:id="@+id/interchange_radio_group"
+            android:layout_toRightOf="@+id/title_text">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="IN"
+                android:textSize="13dp"
 
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OUT"/>
+                android:text="OUT"
+                android:textSize="13dp"/>
         </RadioGroup>
 
         <EditText
-            android:layout_width="150dp"
+            android:id="@+id/truck_edit_text"
+            android:layout_width="120dp"
             android:layout_height="30dp"
             android:hint="Truck #"
+            android:textSize="14dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/interchange_radio_group"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@drawable/rectangular_border"
@@ -51,56 +61,76 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginLeft="10dp">
-
+            android:layout_marginLeft="10dp"
+            android:id="@+id/truck_status_radio_group"
+            android:layout_toRightOf="@+id/truck_edit_text">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loaded"
+                android:textSize="13dp"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Empty"/>
+                android:text="Empty"
+                android:textSize="13dp"/>
         </RadioGroup>
 
         <EditText
-            android:layout_width="150dp"
+            android:id="@+id/trailer_edit_text"
+            android:layout_width="120dp"
+            android:textSize="14dp"
             android:layout_height="30dp"
             android:hint="Trailer #"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@drawable/rectangular_border"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/truck_status_radio_group"/>
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="30dp"
             android:hint="Seal #"
+            android:textSize="14dp"
+            android:id="@+id/seal_edit_text"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@drawable/rectangular_border"
-            android:paddingLeft="10dp"/>
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@+id/trailer_edit_text"/>
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Done"
+            android:text="@string/done"
+            android:textColor="#0000EE"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="150dp"
+
             android:background="@android:color/transparent"
             android:id="@+id/done_button"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/new_interchange_button"
+            android:textAllCaps="false"
             />
         <Button
+            android:id="@+id/new_interchange_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="new Interchange"
+            android:text="@string/newInterchange"
+            android:textColor="#0000EE"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@android:color/transparent"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            android:layout_centerVertical="true"
             />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="100dp"

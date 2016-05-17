@@ -1,4 +1,4 @@
-package adapters;
+package com.example.invision.yardapplication.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +11,8 @@ import com.example.invision.yardapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Interchange;
-import viewHolders.ImageViewHolder;
+import com.example.invision.yardapplication.models.TruckInterchange;
+import com.example.invision.yardapplication.viewHolders.ImageViewHolder;
 
 /**
  * Created by Junaid-Invision on 5/16/2016.
@@ -21,12 +21,12 @@ public class HomeListAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 
 
     private Context context;
-    List<Interchange> interchangeList;
+    List<TruckInterchange> interchangeList;
 
     public HomeListAdapter (Context c)
     {
         context = c ;
-        interchangeList = new ArrayList<Interchange>();
+        interchangeList = new ArrayList<TruckInterchange>();
 
     }
 
@@ -41,7 +41,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
 
-        Interchange interchange  = interchangeList.get(position);
+        TruckInterchange interchange  = interchangeList.get(position);
         holder.setImage(interchange.getImage());
 
     }
@@ -52,7 +52,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     }
 
 
-    public void addItem (Interchange interchange)
+    public void addItem (TruckInterchange interchange)
     {
         interchangeList.add(interchange);
         notifyDataSetChanged();

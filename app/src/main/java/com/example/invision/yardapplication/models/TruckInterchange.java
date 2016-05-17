@@ -1,11 +1,11 @@
-package models;
+package com.example.invision.yardapplication.models;
 
-import android.graphics.Bitmap;
+import com.orm.SugarRecord;
 
 /**
  * Created by Junaid-Invision on 5/16/2016.
  */
-public class Interchange {
+public class TruckInterchange extends SugarRecord {
 
     String truckNumber;
     String sealNumber;
@@ -13,15 +13,21 @@ public class Interchange {
     boolean isLoaded;
     boolean goingIn;
     byte[] image;
+  public String type;
 
 
-    public Interchange ()
+    public TruckInterchange()
     {
-        truckNumber = "";
-        trailerNumber = "";
-        sealNumber = "";
-        isLoaded = false;
-        goingIn = false;
+
+    }
+
+    public TruckInterchange(String truckNumber, String sealNumber, String trailerNumber, boolean isLoaded, boolean goingIn, byte[] image) {
+        this.truckNumber = truckNumber;
+        this.sealNumber = sealNumber;
+        this.trailerNumber = trailerNumber;
+        this.isLoaded = isLoaded;
+        this.goingIn = goingIn;
+        this.image = image;
     }
 
     public String getTruckNumber() {
